@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Text Updates | Kehillas Meat & Poultry</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="index.html">Kehillas Meat &amp; Poultry</a>
+  <nav><a href="index.html">Home</a><a href="sms.html">Text Updates</a><a href="contact.html">Contact</a></nav>
+</div></header>
+
+<section><div class="wrap">
+  <h2>Sign up for text messages</h2>
+  <p>Get your order confirmations, delivery updates and answers to your questions by text, and optionally our weekly specials. Choose what you want to receive below.</p>
+
+  <form id="smsForm" action="https://formsubmit.co/office@kehillaspoultry.com" method="POST">
+    <input type="hidden" name="_subject" value="New SMS opt-in - Kehillas Meat & Poultry">
+    <input type="hidden" name="_next" value="https://kehillaspoultry.com/sms.html?ok=1">
+    <input type="hidden" name="_captcha" value="false">
+
+    <label for="name">First name</label>
+    <input type="text" id="name" name="first_name" required>
+
+    <label for="phone">Mobile number</label>
+    <input type="tel" id="phone" name="mobile_number" required placeholder="(845) 555-1234">
+
+    <div class="check">
+      <input type="checkbox" id="optOrders" name="consent_orders_customer_care" value="yes">
+      <label for="optOrders"><strong>Order updates &amp; customer care</strong> &ndash; order confirmations, order questions (pounds, pieces or packages), delivery and pickup updates, and replies to my questions.</label>
+    </div>
+    <div class="check">
+      <input type="checkbox" id="optPromo" name="consent_marketing" value="yes">
+      <label for="optPromo"><strong>Weekly specials &amp; promotions</strong> &ndash; recurring automated marketing texts about specials and Yom Tov ordering reminders.</label>
+    </div>
+    <p class="err" id="err">Please check at least one box to sign up.</p>
+
+    <p class="disclosure">By checking a box above and submitting this form, you agree to receive recurring automated text messages from Kehillas Meat &amp; Poultry at the mobile number provided, for the message types you selected. Consent is not a condition of purchase. Msg frequency varies (up to 7 msgs/week). Msg &amp; data rates may apply. Reply <strong>HELP</strong> for help and <strong>STOP</strong> to opt out at any time. Customer care: (845) 356-1110 or office@kehillaspoultry.com. See our <a href="terms-of-service.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a>.</p>
+
+    <button class="btn dark" type="submit">Sign up</button>
+    <p id="ok" class="disclosure" style="display:none;color:#1b6b2a;font-weight:bold">Thanks! You'll receive a confirmation text shortly.</p>
+  </form>
+
+  <h2 style="margin-top:36px">Or sign up by text</h2>
+  <p>Text <strong>JOIN</strong> to <strong>(845) 356-1110</strong>.</p>
+  <p class="disclosure">Text JOIN to (845) 356-1110 to receive order updates, customer care replies and weekly specials from Kehillas Meat &amp; Poultry. Consent is not a condition of purchase. Msg frequency varies (up to 7 msgs/week). Msg &amp; data rates may apply. Reply <strong>HELP</strong> for help, <strong>STOP</strong> to opt out. <a href="terms-of-service.html">Terms</a> &amp; <a href="privacy-policy.html">Privacy</a>.</p>
+</div></section>
+
+<footer><div class="wrap">
+  <p>&copy; 2026 Kehillas Meat &amp; Poultry (bsd poultry llc) &middot; 126 Maple Ave, Spring Valley, NY 10977 &middot; (845) 356-1110</p>
+  <p class="links"><a href="sms.html">Text Updates</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-of-service.html">Terms of Service</a></p>
+</div></footer>
+<script>
+document.getElementById('smsForm').addEventListener('submit',function(e){
+  if(!document.getElementById('optOrders').checked && !document.getElementById('optPromo').checked){
+    e.preventDefault();document.getElementById('err').style.display='block';
+  }
+});
+if(location.search.indexOf('ok=1')>-1){document.getElementById('ok').style.display='block';}
+</script>
+</body>
+</html>
